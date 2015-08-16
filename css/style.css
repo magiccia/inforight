@@ -1,0 +1,8 @@
+body > .container {
+  padding-top: 80px;
+}
+
+.country-box {
+  background-color: #aaa;
+  border-radius: 10px;
+}

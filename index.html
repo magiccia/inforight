@@ -3,9 +3,13 @@
 {% block content %}
 <div class="container">
   {% for country in countries %}
-    <h1> {{country.name}} </h1> 
+    <div class="country-box">
+      <h1> {{country.name_en}} / {{country.name_es}} </h1> 
+    </div>  
   {% endfor %}
 </div>
 {% endblock content %}
 
-
+{% block css %} 
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+{% endblock %}
