@@ -3,7 +3,6 @@ body > .container {
 }
 
 .country-box {
-  background-color: #aaa;
   border-radius: 10px;
   width: 31%;
   margin-right: 2%;
@@ -20,9 +19,11 @@ body > .container {
   color: #333;
 }
 
+/*: hover is when mouse is over link */
 .grid a:hover .country-box {
-  background-color: #b8d000;
+  background-color: #b8d000 !important;
 }
+
 
 @media screen
   and (max-width: 500px) {

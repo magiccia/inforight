@@ -8,7 +8,7 @@
 
     {% for country in countries %}
     <a href="#" data-toggle="modal" data-target="#{{country.id}}">
-      <div class="country-box">
+      <div class="country-box" style="background-color: {{country.background_color}}">
         <h1> {{country.name}} </h1>
         <p> {{country.description}} </p> 
       </div> 
