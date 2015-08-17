@@ -5,4 +5,28 @@ body > .container {
 .country-box {
   background-color: #aaa;
   border-radius: 10px;
+  width: 31%;
+  margin-right: 2%;
+  margin-bottom: 10px;
+  padding-left: 13px;
+  padding-right: 13px;
+}
+
+.country-box h1 {
+  text-align: center;
+}
+
+.grid a{
+  color: #333;
+}
+
+.grid a:hover .country-box {
+  background-color: #b8d000;
+}
+
+@media screen
+  and (max-width: 500px) {
+    .country-box {
+      width: 100%;
+    }
 }

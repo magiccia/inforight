@@ -2,13 +2,43 @@
 
 {% block content %}
 <div class="container">
-  {% for country in countries %}
-    <div class="country-box">
-      <h1> {{country.name_en}} / {{country.name_es}} </h1> 
-    </div>  
-  {% endfor %}
+
+  <div class="grid js-isotope"
+  data-isotope-options='{ "itemSelector": ".country-box", "layoutMode": "fitRows" }'>
+
+    {% for country in countries %}
+    <a href="#" data-toggle="modal" data-target="#{{country.id}}">
+      <div class="country-box">
+        <h1> {{country.name}} </h1>
+        <p> {{country.description}} </p> 
+      </div> 
+    </a> 
+    {% endfor %}
+  </div>
+
 </div>
+
+{% for country in countries %}
+<div class="modal fade" id="{{country.id}}">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">{{country.name}}</h4>
+      </div>
+      <div class="modal-body">
+        <p><strong>Year:</strong> {{country.foia_year}}</p>  
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+{% endfor %}
+
 {% endblock content %}
+
+{% block scripts %} 
+<script src="js/lib/isotope.pkgd.min.js"> </script>
+{% endblock %}
 
 {% block css %} 
 <link rel="stylesheet" type="text/css" href="css/style.css" />
