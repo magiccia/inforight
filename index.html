@@ -3,8 +3,7 @@
 {% block content %}
 <div class="container">
 
-  <div class="grid js-isotope"
-  data-isotope-options='{ "itemSelector": ".country-box", "layoutMode": "fitRows" }'>
+  <div class="grid">
 
     {% for country in countries %}
     <a href="#" data-toggle="modal" data-target="#{{country.id}}">
@@ -38,6 +37,7 @@
 
 {% block scripts %} 
 <script src="js/lib/isotope.pkgd.min.js"> </script>
+<script src="js/app.js"></script>
 {% endblock %}
 
 {% block css %} 
