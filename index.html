@@ -14,6 +14,7 @@
       <div class="country-box" style="background-color: {{country.background_color}}">
         <h1> {{country.name}} </h1>
         <p> {{country.description}} </p> 
+        <p class="hidden"> {{country.foia_federal_link}} </p>
       </div> 
     </a> 
     {% endfor %}
@@ -30,7 +31,11 @@
         <h4 class="modal-title">{{country.name}}</h4>
       </div>
       <div class="modal-body">
-        <p><strong>Year:</strong> {{country.foia_year}}</p>  
+        <p><strong>Year:</strong> {{country.foia_year}}</p>
+        <p><strong>Federal link:</strong><a href="{{country.foia_federal_link}}" target="_blank"> {{country.foia_federal_link}} </a></p>  
+        {% if country.foia_ind_links %} 
+        {{country.foia_ind_links|markdown}} 
+        {% endif %}
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
