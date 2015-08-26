@@ -41,7 +41,7 @@
       </div>
       <div class="modal-body">
         <p><strong>Year:</strong> {{country.foia_year}}</p>
-        <p><strong>Federal link:</strong><a href="{{country.foia_federal_link}}" target="_blank"> {{country.foia_federal_link}} </a></p>  
+        <p><strong>Official link:</strong><a href="{{country.foia_federal_link}}" target="_blank"> {{country.foia_federal_link}} </a></p>  
         {% if country.foia_ind_links %} 
         {{country.foia_ind_links|markdown}} 
         {% endif %}
