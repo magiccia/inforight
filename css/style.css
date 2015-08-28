@@ -1,5 +1,5 @@
-body > .container {
-  padding-top: 80px;
+body > .content {
+  padding-top: 50px;
 }
 
 .country-box {
@@ -25,9 +25,9 @@ body > .container {
 }
 
 .search {
-  margin-bottom: 15px;
+  margin-bottom: 35px;
   text-align: center;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .search input {
@@ -45,6 +45,20 @@ body > .container {
 
 .title {
   text-align: center;
+}
+
+.title h1 {
+  font-size: 45px;
+}
+
+.page-about p {
+  font-size: 20px; 
+}
+
+.page-about h1 {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 25px;
 }
 
 @media screen

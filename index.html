@@ -2,33 +2,36 @@
 
 {% block content %}
 
-<div class="jumbotron">
+<div class="content">
+  <div class="jumbotron">
+    <div class="container">
+      <div class="title">
+        <h1>Access to public information around the world</h1>
+        <p>{{intro}}</p>
+      </div>
+    </div>  
+  </div>
+
   <div class="container">
-    <div class="title">
-      <h1>Access to public information around the world</h1>
-      <p>{{intro}}</p>
+
+    <div class="search">
+      <input type="text" class="quicksearch" placeholder="search"/>
     </div>
-  </div>  
-</div>
-<div class="container">
 
-  <div class="search">
-    <input type="text" class="quicksearch" placeholder="search"/>
+    <div class="grid">
+
+      {% for country in countries %}
+      <a href="#" data-toggle="modal" data-target="#{{country.id}}">
+        <div class="country-box" style="background-color: {{country.background_color}}">
+          <h1> {{country.name}} </h1>
+          <p> {{country.description}} </p> 
+          <p class="hidden"> {{country.foia_federal_link}} </p>
+        </div> 
+      </a> 
+      {% endfor %}
+    </div>
+
   </div>
-
-  <div class="grid">
-
-    {% for country in countries %}
-    <a href="#" data-toggle="modal" data-target="#{{country.id}}">
-      <div class="country-box" style="background-color: {{country.background_color}}">
-        <h1> {{country.name}} </h1>
-        <p> {{country.description}} </p> 
-        <p class="hidden"> {{country.foia_federal_link}} </p>
-      </div> 
-    </a> 
-    {% endfor %}
-  </div>
-
 </div>
 
 {% for country in countries %}
@@ -41,10 +44,12 @@
       </div>
       <div class="modal-body">
         <p><strong>Year:</strong> {{country.foia_year}}</p>
+        <p><strong>Freedom of information {{country.type}}:</strong> {{country.foia_law_link}}</p>
         <p><strong>Where to start:</strong><a href="{{country.foia_federal_link}}" target="_blank"> {{country.foia_federal_link}} </a></p>  
         {% if country.foia_ind_links %} 
         {{country.foia_ind_links|markdown}} 
         {% endif %}
+
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
