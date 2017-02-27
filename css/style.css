@@ -3,36 +3,44 @@ body > .content {
 }
 
 .country-box {
-  border-radius: 10px;
-  width: 31%;
-  margin-right: 2%;
   margin-bottom: 10px;
   padding-left: 13px;
   padding-right: 13px;
+  width: 100%;
 }
 
 .country-box h1 {
-  text-align: center;
+  font-size: 28px;
+  color: #428bca;
 }
 
 .grid a{
-  color: #333;
+  color: #525050;
 }
 
 /*: hover is when mouse is over link */
 .grid a:hover .country-box {
-  background-color: #b8d000 !important;
+  background-color: #eee !important;
+}
+
+.grid a:hover .country-box h1 {
+  color: #2a6496;
 }
 
 .search {
-  margin-bottom: 35px;
+  margin-bottom: 15px;
   text-align: center;
-  font-size: 30px;
+  font-size: 18px;
+  padding-left: 13px;
+  padding-right: 13px;
 }
 
 .search input {
-  padding-left: 4px;
-  padding-right: 4px;
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   border: 1px solid #A3C2C2;
   border-radius: 5px;
 }
@@ -52,7 +60,7 @@ body > .content {
 }
 
 .page-about p {
-  font-size: 20px; 
+  font-size: 20px;
 }
 
 .page-about h1 {
