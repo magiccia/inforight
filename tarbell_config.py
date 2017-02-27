@@ -42,3 +42,24 @@ DEFAULT_CONTEXT = {
     'name': 'inforight',
     'title': 'Inforight'
 }
+
+
+from flask import Blueprint, abort, g
+
+NAME = "Inforight"
+blueprint = Blueprint("inforight", __name__)
+
+
+@blueprint.route('/<slug>/')
+def foia(slug):
+    context = g.current_site.get_context()
+    countries = {c['slug']: c for c in context['countries']}
+    if slug not in countries.keys():
+        abort(404)
+
+    extra_context = {
+        "relative_root": "../../",
+        "PATH": "%s.html" % slug,
+        "country": countries[slug],
+    }
+    return g.current_site.preview("_foia.html", extra_context)
