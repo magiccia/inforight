@@ -58,8 +58,6 @@ def foia(slug):
         abort(404)
 
     extra_context = {
-        "relative_root": "../../",
-        "PATH": "%s.html" % slug,
         "country": countries[slug],
     }
     return g.current_site.preview("_foia.html", extra_context)
