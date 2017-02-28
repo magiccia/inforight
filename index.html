@@ -22,8 +22,12 @@
       {% for country in countries %}
       <a href="{{country.slug}}">
         <div class="country-box">
-          <h1> {{country.name}} </h1>
-          <p> {{country.description}} </p>
+          <h1>{{country.name}}</h1>
+          {% if country.type == 'country' %}
+          <p class="country-label region">{{ country.region }}</p>
+          {% else %}
+          <p class="country-label institution-description">{{ country.institution_description }}</p>
+          {% endif %}
         </div>
       </a>
       {% endfor %}
