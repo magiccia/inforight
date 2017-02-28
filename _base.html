@@ -3,9 +3,12 @@
 <head>
   <title>{% block title %}{{ title|striptags }}{% endblock title %}</title>
 
+  {% block base %}
+  {% endblock base %}
+
   {% block favicon %}
   <link rel="shortcut icon" href="/favicon{% if preview_mode %}-preview{% endif %}.ico" />
-  {% endblock %}
+  {% endblock favicon %}
 
   {% block library_css %}
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -13,7 +16,7 @@
 
   {% block css %}
   <link rel="stylesheet" type="text/css" href="css/style.css" />
-  {% endblock %}
+  {% endblock css %}
 
   {% block opengraph %}
   <meta property="og:url" content="http://{{ ROOT_URL }}/{% if PATH != 'index.html' %}{{ PATH }}{% endif %}" />
