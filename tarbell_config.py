@@ -44,7 +44,11 @@ DEFAULT_CONTEXT = {
 }
 
 
-from flask import Blueprint, abort, g
+from clint.textui import puts
+from flask import Blueprint, g
+from tarbell.hooks import register_hook
+
+import os
 
 NAME = "Inforight"
 blueprint = Blueprint("inforight", __name__)
@@ -55,9 +59,33 @@ def foia(slug):
     context = g.current_site.get_context()
     countries = {c['slug']: c for c in context['countries']}
     if slug not in countries.keys():
-        abort(404)
+        return g.current_site.preview(slug)
 
     extra_context = {
         "country": countries[slug],
     }
-    return g.current_site.preview("_foia.html", extra_context)
+    return g.current_site.preview('_foia.html', extra_context)
+
+
+@register_hook('generate')
+def foia_pages(site, output_root, quiet=False):
+    if not quiet:
+        puts("\nCreating country pages\n")
+
+    data = site.get_context()
+    countries = data["countries"]
+    root_path = os.path.realpath(output_root)
+
+    for country in countries:
+        slug = country['slug']
+        page_path = os.path.join(root_path, slug)
+        if not os.path.exists(page_path):
+            os.makedirs(page_path)
+        index_path = os.path.join(page_path, 'index.html')
+        if not quiet:
+            puts("Writing {0}//{1}/index.html".format(output_root, slug))
+        with site.app.test_client() as client:
+            resp = client.get('/{0}/'.format(slug))
+        f = open(index_path, 'w')
+        f.write(resp.data)
+        f.close()
