@@ -55,7 +55,7 @@ def foia(slug):
     context = g.current_site.get_context()
     countries = {c['slug']: c for c in context['countries']}
     if slug not in countries.keys():
-        abort(404)
+        return g.current_site.preview(slug)
 
     extra_context = {
         "country": countries[slug],
